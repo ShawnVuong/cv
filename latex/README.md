@@ -53,7 +53,7 @@ cv/
 │   ├── publications.bib   # For bibliography (optional)
 │   └── README.md         # This file
 ├── cv-master             # Source markdown
-└── cv-full              # Formatted markdown
+└── cv-gpt              # Formatted markdown
 ```
 
 ## Custom Template Commands
