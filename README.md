@@ -8,7 +8,7 @@ This repository serves as the single source of truth for all CV variants. The ma
 
 ## Current
 
-- `cv-full` — Complete chronological CV (source of truth)
+- `cv-master` — Complete chronological CV (source of truth)
 
 ## Future Directions
 
