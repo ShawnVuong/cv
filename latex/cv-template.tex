@@ -1,0 +1,731 @@
+%==============================================================================
+% Shawn M. Vuong, MD - Academic CV LaTeX Template
+% Professional Academic Curriculum Vitae
+%==============================================================================
+
+\documentclass[11pt, a4paper]{article}
+
+%------------------------------------------------------------------------------
+% Packages
+%------------------------------------------------------------------------------
+\usepackage[hmargin=0.75in, vmargin=0.75in]{geometry}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\usepackage{ifthen}
+\usepackage{parskip}
+\usepackage{booktabs}
+\usepackage{microtype}
+
+%------------------------------------------------------------------------------
+% Colors
+%------------------------------------------------------------------------------
+\definecolor{primary}{RGB}{31, 73, 125}
+\definecolor{secondary}{RGB}{64, 64, 64}
+\definecolor{accent}{RGB}{0, 112, 192}
+\definecolor{lightgray}{RGB}{240, 240, 240}
+
+%------------------------------------------------------------------------------
+% Font Configuration
+%------------------------------------------------------------------------------
+\setmainfont[
+    Ligatures=TeX,
+    BoldFont={Helvetica Neue Bold},
+    ItalicFont={Helvetica Neue Italic},
+    BoldItalicFont={Helvetica Neue Bold Italic}
+]{Helvetica Neue}
+
+%------------------------------------------------------------------------------
+% Page Style
+%------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{primary}\small\scshape\CV@name}
+\fancyhead[R]{\color{secondary}\small\thepage}
+\fancyfoot[C]{}
+\fancyfoot[L]{\color{lightgray}\rule{\linewidth}{0.4pt}}
+\def\headrule{\noalign{\global\@headrulewidth=0.4pt}%
+  \global\@footrulewidth=0pt}
+  
+\pagestyle{fancy}
+
+%------------------------------------------------------------------------------
+% Section Formatting
+%------------------------------------------------------------------------------
+\titleformat{\section}
+  {\Large\color{primary}\scshape\MakeUppercase}
+  {}
+  {0em}
+  {\titlerule[0.5pt]\vspace{-0.5em}}
+
+\titlespacing*{\section}{0pt}{1.5ex plus 1ex minus 0.2ex}{0.5ex}
+
+%------------------------------------------------------------------------------
+% Subsection Formatting
+%------------------------------------------------------------------------------
+\titleformat{\subsection}
+  {\large\color{secondary}\bfseries}
+  {}
+  {0em}
+  {}
+
+\titlespacing*{\subsection}{0pt}{0.75ex plus 0.5ex minus 0.2ex}{0.25ex}
+
+%------------------------------------------------------------------------------
+% Item Formatting
+%------------------------------------------------------------------------------
+\setlist[itemize]{noitemsep, topsep=0pt, partopsep=0pt, parsep=0pt}
+\setlist[1]{label={\color{accent}\textbullet}}
+
+%------------------------------------------------------------------------------
+% Custom Commands
+%------------------------------------------------------------------------------
+\def\CV@name{Shawn M. Vuong, MD}
+\def\CV@title{Pediatric Neurosurgeon}
+\def\CV@address{1420 W 22nd St. Ste 510, Sioux Falls, SD 57105}
+\def\CV@phone{(605) 310-8163}
+\def\CV@email{shawn.vuong@sanfordhealth.org}
+\def\CV@linkedin{https://www.linkedin.com/in/shawnvuong/}
+
+% Header Command
+\newcommand{\makeheader}[0]{%
+  \begin{center}
+    {\Huge\color{primary}\bfseries\CV@name}\\[0.2em]
+    {\large\color{secondary}\CV@title}\\[0.5em]
+    {\small
+      \CV@address{} \textbullet{} \CV@phone{} \textbullet{} \hrefmailto{\CV@email}\textbullet{} \href{\CV@linkedin}{LinkedIn}
+    }
+  \end{center}
+  \vspace{0.5em}
+  \hrule width \linewidth height 1pt \color{primary}
+  \vspace{0.5em}
+}
+
+% Section Command
+\newcommand{\cvsection}[1]{%
+  \section{#1}
+}
+
+% Entry Command - For main position/title entries
+% Usage: \cventry{title}{institution}{location}{date}{details}
+\newcommand{\cventry}[5]{%
+  \par{\textbf{#1}\hfill\textit{#4}}\\
+  \textit{#2}\ifthenelse{\equal{#3}{}}{}{ --- #3}\par
+  \ifthenelse{\equal{#5}{}}{}{#5\par}
+  \vspace{0.25em}
+}
+
+% SubEntry Command - For nested entries under main positions
+% Usage: \subentry{title}{description}
+\newcommand{\subentry}[2]{%
+  \par{\textbullet{} \textbf{#1}}\par
+  \ifthenelse{\equal{#2}{}}{}{#2\par}
+  \vspace{0.15em}
+}
+
+% Publication Command
+% Usage: \pubentry{authors}{title}{journal}{details}
+\newcommand{\pubentry}[4]{%
+  \par#1. #2. \textit{#3}. #4\par
+  \vspace{0.15em}
+}
+
+% Presentation Command
+% Usage: \presentry{authors}{title}{venue}{date}{location}
+\newcommand{\presentry}[5]{%
+  \par#1. \textbf{#2}. #3. #4. #5\par
+  \vspace{0.1em}
+}
+
+% Patent Command
+% Usage: \patententry{title}{number}{date}
+\newcommand{\patententry}[3]{%
+  \par#1. \textit{U.S. Patent #2}. #3\par
+  \vspace{0.15em}
+}
+
+% Education Entry
+% Usage: \education{degree}{institution}{location}{dates}{details}
+\newcommand{\education}[5]{%
+  \cventry{#1}{#2}{#3}{#4}{#5}
+}
+
+% Professional Entry
+% Usage: \professional{title}{institution}{location}{dates}{details}
+\newcommand{\professional}[5]{%
+  \cventry{#1}{#2}{#3}{#4}{#5}
+}
+
+% Award Entry
+% Usage: \award{name}{details}
+\newcommand{\award}[2]{%
+  \par\textbf{#1}\ifthenelse{\equal{#2}{}}{}{ --- #2}\par
+  \vspace{0.1em}
+}
+
+% Course Entry
+% Usage: \course{name}{date}{location}
+\newcommand{\course}[3]{%
+  \par#1. #2. #3\par
+  \vspace{0.05em}
+}
+
+% Grant Entry
+% Usage: \grant{name}{amount}{details}
+\newcommand{\grant}[3]{%
+  \par\textbf{#1}\ifthenelse{\equal{#2}{}}{}{ --- #2}\par
+  \ifthenelse{\equal{#3}{}}{}{#3\par}
+  \vspace{0.1em}
+}
+
+% Link helper
+\def\mailto#1{\href{#1}{\nolinkurl{#1}}}
+\def\href#1#2{\href{#1}{\color{accent}{#2}}}
+
+%------------------------------------------------------------------------------
+% Document
+%------------------------------------------------------------------------------
+\begin{document}
+
+\makeheader
+
+%------------------------------------------------------------------------------
+% LICENSES
+%------------------------------------------------------------------------------
+\cvsection{Licenses}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Physician Medical License (75486) --- Minnesota Board of Medical Practice, October 2023 -- August 2026
+  \item License to Practice Medicine (20076) --- North Dakota Board of Medicine, July 2023 -- August 2026
+  \item Permanent Medical License (MD-48008) --- Iowa Board of Medicine, November 2020 -- August 2026
+  \item Medical License MD/DO (10990) --- South Dakota Board of Medical \& Osteopathic Examiners, July 2018 -- Present
+  \item Interstate Medical Licensure Compact Designate --- Letter of Qualification Expiration June 2024
+  \item Doctor of Medicine (35.122276) --- State Medical Board of Ohio, September 2013 -- October 2019
+  \item MD Training Certification (57.021695) --- State Medical Board of Ohio, October 2012 -- June 2013
+\end{itemize}
+\vspace{0.5em}
+
+%------------------------------------------------------------------------------
+% CERTIFICATIONS
+%------------------------------------------------------------------------------
+\cvsection{Certifications}
+
+\subsection{United States Medical Licensing Exam}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item USMLE Step 1 --- June 2010 (98)
+  \item USMLE Step 2 CK --- July 2011 (98)
+  \item USMLE Step 2 CS --- July 2011 (PASS)
+  \item USMLE Step 3 --- February 2013 (80)
+\end{itemize}
+
+\subsection{American Board of Neurological Surgery (ABNS)}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Written Exam --- March 2016 (PASS)
+  \item Oral Exam --- May 2022 (PASS)
+  \item Diplomate --- May 2022, Certificate \#220543118
+  \item Recognition of Focused Practice --- Pediatrics
+\end{itemize}
+
+\subsection{American Board of Pediatric Neurosurgery (ABPNS)}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Subspecialty Exam --- June 2019 (PASS)
+  \item Oral Board Exam --- May 2022 (PASS)
+  \item Diplomate --- June 2023, Certificate \#220543118
+\end{itemize}
+\vspace{0.5em}
+
+%------------------------------------------------------------------------------
+% EDUCATION
+%------------------------------------------------------------------------------
+\cvsection{Education}
+
+\education%
+  {Fellow in Pediatric Neurosurgery}%
+  {Cincinnati Children's Hospital Medical Center}%
+  {Cincinnati, OH}%
+  {July 2018 -- July 2019}%
+  {Division of Neurosurgery \textbullet{} U.S. News \& World Report 2nd Best Children's Hospital 2018-2019 \textbullet{} Fellowship Director: Francesco T. Mangano}
+
+\education%
+  {Chief Resident in Neurosurgery}%
+  {University of Cincinnati Medical Center}%
+  {Cincinnati, OH}%
+  {July 2017 -- June 2018}%
+  {Department of Neurosurgery \textbullet{} Chairmen: Joseph C. Cheng \& Mario Zuccarello}
+
+\education%
+  {Resident in Neurosurgery}%
+  {University of Cincinnati Medical Center}%
+  {Cincinnati, OH}%
+  {July 2012 -- June 2018}%
+  {Department of Neurosurgery -- Mayfield Clinic \& Cincinnati Children's Hospital Medical Center \textbullet{} Over 1500 logged surgical cases \textbullet{} Experience with minimally invasive spine, open complex spine, stereotactic radiosurgery, endovascular neurosurgery, open vascular, trauma, peripheral nerve, skull-base, tumor, deep brain stimulation, epilepsy, and pediatrics}
+
+\education%
+  {Medical Doctorate (MD)}%
+  {Sanford School of Medicine, University of South Dakota}%
+  {Sioux Falls, SD}%
+  {August 2008 -- May 2012}%
+  {Student of the Yankton Model Program \textbullet{} Over 1300 logged patient encounters \textbullet{} Over 250 logged surgical cases (most first assist)}
+
+\education%
+  {Bachelor of Science (BS), Biology, Summa Cum Laude}%
+  {University of South Dakota}%
+  {Vermillion, SD}%
+  {September 2004 -- May 2008}%
+  {}
+
+%------------------------------------------------------------------------------
+% PROFESSIONAL APPOINTMENTS \& EMPLOYMENT
+%------------------------------------------------------------------------------
+\cvsection{Professional Appointments \& Employment}
+
+\professional%
+  {Chief of Surgery, Sanford Medical Center}%
+  {Sanford Health}%
+  {Sioux Falls, SD}%
+  {July 2022 -- Present}%
+  {Surgical Operations \textbullet{} Oversee credentials and privileges for all surgical physicians, APPs, and assistants \textbullet{} Oversee over 138 surgeons, over 200 total OR staff, 45 full-time operating rooms \textbullet{} Lead and organized block scheduling initiative to increase efficiencies in the OR flow and schedule \textbullet{} Provided guidance regarding CRNA work shortage and leadership changes \textbullet{} Supervising physician for OR Advance Practice Providers}
+
+\professional%
+  {Staff Neurosurgeon}%
+  {Sanford Medical Center}%
+  {Sioux Falls, SD}%
+  {August 2019 -- Present}%
+  {Department of Surgery, Division of Neurosurgery}
+
+\professional%
+  {Chair of Neurosurgery}%
+  {Sanford Health Sioux Falls}%
+  {Sioux Falls, SD}%
+  {October 2022 -- Present}%
+  {Volume review, efficiency review, peer review, and department efficiencies \textbullet{} Lead and represent neurosurgery department \textbullet{} In collaboration with the department director, responsible for achieving quality, SAFE, and operational goals \textbullet{} Recruited 3 additional neurosurgeons and helped rebuild the department \textbullet{} Lead monthly department meetings \textbullet{} Oversee 4 full-time and 2 part-time surgeons as well as any locums coverage and 7 APPs}
+
+\professional%
+  {Assistant Professor of NeuroSciences}%
+  {Sanford School of Medicine, University of South Dakota}%
+  {Sioux Falls, SD}%
+  {November 2020 -- Present}%
+  {Department of Neurosciences \textbullet{} Sponsor medical students for the student chapter of the AANS}
+
+\professional%
+  {Assistant Professor of Surgery}%
+  {Sanford School of Medicine, University of South Dakota}%
+  {Sioux Falls, SD}%
+  {August 2019 -- Present}%
+  {Department of Surgery}
+
+\professional%
+  {Instructor of Neurosurgery}%
+  {University of Cincinnati Medical Center}%
+  {Cincinnati, OH}%
+  {July 2012 -- June 2018}%
+  {Department of Neurosurgery -- Mayfield Clinic \& Cincinnati Children's Hospital Medical Center}
+
+\professional%
+  {Surgery Tech Program Advisory Board -- Surgeon Liaison}%
+  {Southeast Technical Institute}%
+  {Sioux Falls, SD}%
+  {May 2025 -- Present}%
+  {Provide surgeon input for STI's surgical technician education program \textbullet{} ARC/STSA accredited advisory board}
+
+\professional%
+  {Chief of Surgery \& Neurosurgery Liaison}%
+  {Surgical Operations Committee, Sanford Health Sioux Falls}%
+  {Sioux Falls, SD}%
+  {November 2021 -- Present}%
+  {Volume review, efficiency review, value analysis, surgical block time request review \textbullet{} Lead and represent surgeons, working with administration to review and improve surgical operations \textbullet{} Lead peer review meeting for continued commitment to patient quality and safety \textbullet{} Lead the overall of surgical block time request criteria and protocols (March 2023) \textbullet{} Performed Biannual Surgeon scorecard reviews (via Statit)}
+
+\professional%
+  {Neurosurgery Liaison}%
+  {Trauma Quality \& Safety Committee, Sanford Health Sioux Falls}%
+  {Sioux Falls, SD}%
+  {September 2019 -- Present}%
+  {Review both adult and pediatric trauma protocols \textbullet{} Assist in providing peer-review of adult and pediatric trauma cases}
+
+\professional%
+  {Neurosurgery Liaison}%
+  {Surgery Case Review Committee, Sanford Health Sioux Falls}%
+  {Sioux Falls, SD}%
+  {March 2021 -- Present}%
+  {Assist in providing peer-review for both adult and pediatric non-trauma surgical cases \textbullet{} Discuss and implement systemic surgical protocols to provide safer surgery for patients}
+
+%------------------------------------------------------------------------------
+% AWARDS, HONORS, \& GRANTS
+%------------------------------------------------------------------------------
+\cvsection{Awards, Honors, \& Grants}
+
+\award{Key to the Castle Winner}{December 2022}
+
+\award{Always Available Award}{Awarded for always being amiable for pediatric neurosurgery opinions and recommendations despite not being on call. Nominated by Dr. Kellie Sweet}
+
+\award{Frank H. Mayfield Society}{Inducted April 14, 2018 --- Mayfield Brain \& Spine --- Graduate of the University of Cincinnati Neurosurgery Residency}
+
+\award{Hydrocephalus Association's Young Investigator 2018 Travel Award}{January 2018 --- Cincinnati Children's Hospital \& Medical Center, University of Cincinnati Medical Center, \& the Mayfield Clinic --- Poster: CRISPR/Cas9-Based Development of progressive hydrocephaly (prh) Rat Model --- Awarded funding to attend HACONNECT'18}
+
+\award{2017 Hydrocephalus Association Award}{December 2017 --- Resident award for the best presentation on Hydrocephalus at the 2017 AANS/CNS Joint Pediatric Section Annual Meeting, Houston, TX --- Presented at AANS 2018, New Orleans, LA --- Presentation: CRISPR/Cas9-Based Development of progressive hydrocephaly (prh) Rat Model of Hydrocephalus}
+
+\grant{Mayfield Education \& Research Foundation (MERF) Grant}{\$48,000}{January 2016 --- Cincinnati Children's Hospital \& Medical Center, University of Cincinnati Medical Center, \& the Mayfield Clinic --- Research: Identification of Molecular Therapeutic Targets in Choroid Plexus using a Novel Mouse Model of Communicating Hydrocephalus}
+
+%------------------------------------------------------------------------------
+% PROFESSIONAL MEMBERSHIPS
+%------------------------------------------------------------------------------
+\cvsection{Professional Memberships}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item American College of Surgeons (ACS) -- Fellow
+  \item International College of Surgeons (ICS) -- Fellow
+  \item American Association of Neurological Surgeons (AANS) -- Fellow
+  \item Congress of Neurological Surgeons (CNS) -- Fellow
+  \item AANS/CNS Section on Pediatric Neurological Surgery -- Member
+  \item The American Academy of Neurological \& Orthopaedic Surgeons -- Honorary Member
+\end{itemize}
+\vspace{0.5em}
+
+%------------------------------------------------------------------------------
+% RESEARCH \& TEACHING EXPERIENCE
+%------------------------------------------------------------------------------
+\cvsection{Research \& Teaching Experience}
+
+\professional%
+  {Member of Ph.D. Dissertation Committee}%
+  {University of South Dakota Sanford School of Medicine}%
+  {Sioux Falls, SD}%
+  {September 2025 -- Present}%
+  {Dissertation committee for Tana Lick, MD/PhD Candidate 2029}
+
+\award{Outstanding Mentor Award}{April 2022 --- University of South Dakota Sanford School of Medicine --- Awarded by the medical school class of 2022 to a mentor who was a senior students most influential mentor. Awarded by Nicholas Pekas, MD, PhD, class of 2022}
+
+\professional%
+  {Resident Physician Researcher}%
+  {Cincinnati Children's Hospital \& Medical Center}%
+  {Cincinnati, OH}%
+  {July 2016 -- June 2017}%
+  {Neuroscience research on congenital hydrocephalus in a mouse model under the supervision of June Goto Nakamura Ph.D. and Francesco Mangano, DO}
+
+\professional%
+  {Research Technician}%
+  {University of South Dakota}%
+  {Vermillion, SD}%
+  {January 2006 -- July 2010}%
+  {Addiction pathways neuroscience research conducted under the supervision of Gina L. Forster Ph.D.}
+
+\professional%
+  {Emergency Medical Technician -- Instructor}%
+  {Vermillion/Clay County EMS}%
+  {Vermillion, SD}%
+  {July 2005 -- July 2010}%
+  {NREMT-Basic certification received May 2005, and NREMT-Intermediate 85 received June 2007 \textbullet{} Taught EMT-Basic students, human anatomy \& physiology, vital signs, SAMPLE history taking, pharmacology, respiratory system, cardiac system, and the recognition and treatment of bleeding and shock as an EMT instructor}
+
+%------------------------------------------------------------------------------
+% PUBLICATIONS
+%------------------------------------------------------------------------------
+\cvsection{Publications}
+\textit{Peer-Reviewed Journal Articles}
+
+\begin{enumerate}
+  \setlength\itemindent{0.25em}
+  \setlength\itemsep{0.15em}
+  
+  \item Holsing J, Vuong SM, Schimelpfenig SS. Acute Spontaneous Subaponeurotic Fluid Collection in a 3-month-old. \textit{South Dakota Medicine}. Oct 2025.
+  
+  \item Bosch TJ, Cole RC, Vuong SM, Flouty O, Singh A. Modulation of Cerebellar Oscillations with Subthalamic Stimulation in Patients with Parkinson's Disease. \textit{J Parkinsons Dis}. 2024 Sep 24. doi: 10.3233/JPD-240065. PMID: 39331106.
+  
+  \item Gaulden AL, Nagaraj UD, Emmert AS, Vuong SM, Kline-Fath BM, Bierbrauer KS, Patel SK. Imaging-Based Prediction Parameters of Perinatal Morbidity and Mortality for Fetal Occipital Cephaloceles. \textit{Prenat Diagn}. 2024 Sep 10. doi: 10.1002/pd.6660. PMID: 39256950.
+  
+  \item Soyland DJ, Thanel PF, Sievers ME, Wagner K, Vuong SM. Primary Epidural Sporadic Burkitt Lymphoma in a 3-Year-Old: Case Report and Literature Review. \textit{Surg Neurol Int}. 2022 Mar 25;13:106. PMID: 35399880.
+  
+  \item Navid MS, Kammermeier S, Niazi IK, Sharma VD, Vuong SM, et al. Cognitive task-related oscillations in human internal globus pallidus and subthalamic nucleus. \textit{Behav Brain Res}. 2022 Apr 29;424:113787. PMID: 35143905.
+  
+  \item Soyland DJ, Goehner DR, Hoerschgen KM, Gust TD, Vuong SM. Hemorrhagic Spinal Melanotic Schwannoma Presenting as Acute Chest Pain: A Case Report and Literature Review. \textit{Surg Neurol Int}. 2021 Apr 14;12:164. PMID: 33948334.
+  
+  \item Lommen MJ, Andreone MA, Vuong SM. The Residency Match in South Dakota: A National Comparison of Specialty and Geographic Trends. \textit{South Dakota Medicine}. 2020 Oct;73(10):462-469. PMID: 33264525.
+  
+  \item Goehner D, Soyland D, Trumble E, Vuong SM. Pineal Cyst Apoplexy in an 8-Year-Old Girl: Case Report and Literature Review. \textit{World Neurosurg}. 2020 Jun 29. PMID: 32615292.
+  
+  \item Porter Z, Yang G, Vuong S, Hanna B, Madsen J, Vadivelu S. In situ clearance of a proximal shunt malfunction in a child with hydrocephalus post cerebral arteriovenous malformation rupture noted intraoperatively. \textit{Surg Neurol Int}. 2020 May 16;11:116. PMID: 32494391.
+  
+  \item Emmert AS, Vuong SM, Shula C, Lindquist D, Yuan W, Hu YC, Mangano FT, Goto J. Characterization of a Novel Rat Model of X-linked Hydrocephalus by CRISPR-mediated Mutation in L1cam. \textit{Journal of Neurosurgery}. 2019 Feb 8. PMID: 30738385.
+  
+  \item Patel SK, Vuong SM, Yuan W, Mangano FT. Anatomy and Physiology Based Magnetic Resonance Imaging in Hydrocephalus. In: Limbrick D, Leonard J, ed. \textit{Lifelong Implications of Cerebrospinal Fluid Disorders}. Springer; 2017.
+  
+  \item Gibson GL, Vuong SM, Tew JM, Bohinski RJ. Management of autonomic dysreflexia associated with Charcot spinal arthropathy in a patient with complete spinal cord injury: case report and review of the literature. \textit{Surg Neurol Int}. 2018 May 29;9:113. PMID: 29930879.
+  
+  \item Carroll, Tackla, Vuong, Ringer. Surveillance and Screening for Intracranial Aneurysms. In: Ringer AJ, ed. \textit{Intracranial Aneurysms}. UK: Academic Press; 2018:85-98.
+  
+  \item Abdelhamed ZI, Vuong SM, Hill L, Shula CS, Timms A, et al. A Mutation in Ccdc39 Causes Neonatal Hydrocephalus with Abnormal Motile Cilia Development. \textit{Development}. 2018 Jan 9;145(1). PMID: 29317443.
+  
+  \item Vuong SM, Carroll CP, Tackla RD, Jeong WJ, Ringer AJ. Application of emerging technologies to improve access to ischemic stroke care. \textit{Neurosurgical FOCUS}. 2017;42:E8. PMID: 28366070.
+  
+  \item Vuong SM, Jeong WJ, Morales H, Abruzzo TA. Vascular Diseases of the Spinal Cord: Infarction, Hemorrhage, and Venous Congestive Myelopathy. \textit{Semin Ultrasound CT MR}. 2016 Oct;37(5):466-81. PMID: 27616317.
+  
+  \item Serrone JC, Tackla RD, Gozal YM, Hanseman DJ, Gogela SL, Vuong SM, et al. Aneurysm Growth and De Novo Aneurysms during Aneurysm Surveillance. \textit{J Neurosurg}. 2016 Dec;125(6):1374-1382. PMID: 26967775.
+  
+  \item Vuong SM, Appelwick JE. MRSA Peritonitis Secondary to Perforation of Sigmoid Diverticulitis. \textit{S D Med}. 2011 Nov;64(11):405-409. PMID: 22164818.
+  
+  \item Vuong SM, Holm RP. Does a stereotypical surgical personality exist? \textit{S D Med}. 2011 May;64(5):172. PMID: 21661343.
+  
+  \item Scholl JL, Vuong SM, Forster GL. Chronic amphetamine treatment enhances corticotropin-releasing factor-induced serotonin release in the amygdala. \textit{Eur J Pharmacol}. 2010 Oct 10;644(1-3):80-7. PMID: 20655906.
+  
+  \item Vuong SM, Oliver HA, Scholl JL, Oliver KM, Forster GL. Increased anxiety-like behavior of rats during amphetamine withdrawal is reversed by CRF-2 receptor antagonism. \textit{Behav Brain Res}. 2010;208:278-281. PMID: 19958793.
+  
+  \item Lukkes J, Vuong SM, Scholl JL, Oliver H, Forster GL. Corticotropin-releasing factor receptor antagonism within the dorsal raphe nucleus reduces social anxiety-like behavior after early-life social isolation. \textit{J Neurosci}. 2009 Aug 12;29(32):9955-60. PMID: 19675229.
+  
+  \item Forster GL, Pringle RB, Mouw NJ, Vuong SM, et al. Corticotropin-releasing factor in the dorsal raphe nucleus increases medial prefrontal cortical serotonin via type 2 receptors and median raphe nucleus activity. \textit{Eur J Neurosci}. 2008;28:299-310. PMID: 18702701.
+  
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+% CONFERENCE ACTIVITY \& PRESENTATIONS
+%------------------------------------------------------------------------------
+\cvsection{Conference Activity \& Presentations}
+
+\subsection{2026}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM. Craniotomy for Severe Traumatic Brain Injury. Pillar 1 - First Year Medical Students - Neuro-Block Clinical Correlation. Sanford School of Medicine, University of South Dakota. Vermillion, SD.
+\end{itemize}
+
+\subsection{2025}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM. The Road to Neurosurgery: The Pre-Med Seminar. University of South Dakota Pre-Med Seminar Course. Vermillion, SD.
+  \item Vuong SM. Inter-ventricular Hemorrhage of Prematurity. South Dakota Neuro-Stroke Conference 2025 - American Heart Association. Sioux Falls, SD.
+  \item Vuong SM. Craniotomy for Severe Traumatic Brain Injury. Pillar 1 - First Year Medical Students - Neuro-Block Clinical Correlation. Sanford School of Medicine, University of South Dakota. Vermillion, SD.
+  \item Vuong SM. Advanced Provider Session: Burst Fracture \& Anterior Column Support with Stryker Spine Jack. The Winter Clinics for Cranial and Spinal Surgery. Snowmass, CO.
+  \item Vuong SM. What the hell does a neurosurgeon know about sales? Aesculap 2025 National Sales Meeting - Neuro Division. Austin, TX.
+\end{itemize}
+
+\subsection{2024}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM. Brain Death - A Clinician's Perspective. The 2024 Alumni Speaker. Center for Brain and Behavior Research (CBBRe) 2024 Symposium on Neurotics \& Bioethics. Vermillion, SD.
+  \item Vuong SM \& Opoku-Darko M. Intracerebral Hemorrhage - Neurosurgery's role. Neurosurgery Department Lunch \& Learn. Sioux Falls, SD.
+  \item Vuong SM. Spinal Fracture Review. Neurosurgery Department Lunch \& Learn. Sioux Falls, SD.
+  \item Vuong SM. Advanced Provider Session: Spinal Fracture Review. The Winter Clinics for Cranial and Spinal Surgery. Snowmass, CO.
+  \item Vuong SM. Craniotomy for Severe Traumatic Brain Injury. Pillar 1 - First Year Medical Students - Neuro-Block Clinical Correlation. Sanford School of Medicine, University of South Dakota. Vermillion, SD.
+  \item Vuong SM. Basivertebral Nerve Ablation. Sanford Chiropractic Symposium. Sioux Falls, SD.
+  \item Vuong SM. The Six Chiaris. South Dakota Academy of Family Physicians Winter Seminar. Deadwood, SD.
+  \item Vuong SM. Pediatric Neurosurgery - Lunch and Learn. Pediatrics Department, Sanford Health. Sioux Falls, SD.
+  \item Vuong SM. Craniotomy for Severe Traumatic Brain Injury. Anesthesia Department Monthly Education. Sioux Falls, SD.
+  \item Vuong SM. Spinal Fracture Review. The Sanford EMS Refresher Course. Sioux Falls, SD.
+\end{itemize}
+
+\subsection{2023}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM. Craniotomy for Severe Traumatic Brain Injury. The Surgical Staff In-Service. Sanford Health. Sioux Falls, SD.
+  \item Vuong SM. Advanced Provider Session: Spinal Cord Stimulator Review. The Winter Clinics for Cranial and Spinal Surgery. Snowmass, CO.
+  \item Vuong SM. Craniotomy for Severe Traumatic Brain Injury. The Sanford EMS Refresher Course. Virtual Symposium. Sioux Falls, SD.
+\end{itemize}
+
+\subsection{2022}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM. Craniotomy for Severe Traumatic Brain Injury. The Sanford Health Annual Trauma Symposium. Sioux Falls, SD.
+  \item Goehner D, Soyland D, Trumble E, Vuong SM. Pineal Cyst Apoplexy in an 8-Year-Old Girl: Case Report and Literature Review. USD-SSOM Pediatric Research and Scholarship Day. Sioux Falls, SD.
+  \item Soyland DJ, Thanel PF, Sievers ME, Wagner K, Vuong SM. Primary epidural sporadic Burkitt lymphoma in a 3-year-old. USD-SSOM Pediatric Research and Scholarship Day (Best Case Report Abstract Award). Sioux Falls, SD.
+  \item Vuong SM. CSF Flow Dynamics: Do we really understand CSF flow? Pediatric and PICU Nursing Education Event. Sioux Falls, SD.
+  \item Vuong SM. Traumatic Brain Injury and the GCS. Patient Care Emergency Medical Services \& Sioux Falls Fire Department - Yearly Refresher. Sioux Falls, SD.
+  \item Vuong SM. Craniotomy with ICU Complications. Siouxland Conference for the American Association of Critical-Care Nurses. Sioux Falls, SD.
+  \item Vuong SM. Advanced Provider Session: Chiari 1 and CSF Leak Review. The Winter Clinics for Cranial and Spinal Surgery. Snowmass, CO.
+  \item Vuong SM. Surgery Department Grand Rounds: Spinal Fracture Review. University of South Dakota. Sioux Falls, SD.
+  \item Vuong SM. Adult Traumatic Brain Injury Review. The Sanford EMS Refresher Course. Sioux Falls, SD.
+\end{itemize}
+
+\subsection{2021}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM. Vestibular Schwannomas Review. The Sanford Health Oncology Education Forum. Sioux Falls, SD.
+  \item Vuong SM. CSF Flow Dynamics: Do we really understand CSF flow? 82nd Annual Surgical Update - Global and Rural Surgery. Minneapolis, MN.
+  \item Vuong SM. The Six Chiaris. Super Conference 2021 - South Dakota Chiropractors Association. Sioux Falls, SD.
+\end{itemize}
+
+\subsection{2020}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Patel SK, Nagaraj UD, Emmert AS, Vuong SM, et al. Factors underlying postnatal outcomes in fetal occipital encephalocele: The development of imaging-based prediction parameters. 49th Annual AANS/CNS Section on Pediatric Neurological Surgery. Virtual Meeting.
+  \item Vuong SM. Adult Traumatic Brain Injury Review. The Sanford Health Annual Trauma Symposium. Sioux Falls, SD.
+  \item Trumble ER \& Vuong SM. Primary and Secondary Concerns in the Treatment of Chiari and Syringomyelia. Third Annual South Dakota Chiari Symposium. Sioux Falls, SD.
+  \item Vuong SM. Pediatric Department Grand Rounds: CSF Flow Dynamics. University of South Dakota. Sioux Falls, SD.
+  \item Vuong SM. Surgery Department Grand Rounds: Clearing C-Spine. University of South Dakota. Sioux Falls, SD.
+  \item Vuong SM. Basics of Spinal Deformity. 11th Annual Trends in Spine Care Symposium. Sioux Falls, SD.
+  \item Vuong SM. Advanced Provider Session: Cranial Case Review - Traumatic Brain Injury. The Winter Clinics for Cranial and Spinal Surgery. Snowmass, CO.
+\end{itemize}
+
+\subsection{2019}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM \& Bierbrauer K. Chiari Malformation Type III. The Cincinnati Fetal Center Conference. Cincinnati, OH.
+  \item Zamorano J, Vuong SM, et al. The Utility of Stereoelectroencephalography for Seizure Localization in Pediatric Patients with Drug-Resistent Epilepsy. Congreso De La Sociedad Española de Neurocirugía. Salamanca, Spain.
+  \item Vuong SM. The Six Chiaris. 6th Annual Advanced Practice Provider Pediatric Neurosurgery Conference. Cincinnati, OH.
+  \item Peariso K \& Vuong SM. Hemorrhagic Strokes. Pediatric Critical Care Fellows' Conference, Cincinnati Children's Hospital Medical Center. Cincinnati, OH.
+  \item Vuong SM. Advanced Provider Session: The Six Chiaris. The Winter Clinics for Cranial and Spinal Surgery. Snowmass, CO.
+\end{itemize}
+
+\subsection{2018}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Lee J, Monahan S, Vuong S, et al. Endoscopic Endonasal Approach for the Resection of Nasal Dermoid Cysts with Intracranial Extension. 18th Congress of International Society of Craniofacial Surgery. Paris, France.
+  \item Lee J, Monahan S, Vuong S, et al. Endoscopic Endonasal Approach for the Resection of Nasal Dermoid Cysts with Intracranial Extension. American Cleft Palate -- Craniofacial Association 76th Annual Meeting. Tuscon, AZ.
+  \item Patel SK, Vuong SM, et al. Short-term seizure outcomes in pediatric patients with focal drug-resistant epilepsy undergoing MRI-guided laser interstitial thermal therapy. 47th Annual AANS/CNS Section on Pediatric Neurological Surgery. Nashville, TN.
+  \item Patel SK, Vuong SM, et al. The utility of stereoelectroencephalography for seizure localization in pediatric patients with drug-resistant epilepsy. 47th Annual AANS/CNS Section on Pediatric Neurological Surgery. Nashville, TN.
+  \item Emmert AS, Vuong SM, et al. CRISPR/Cas9-Based Development of progressive hydrocephaly (prh) Rat Model of Hydrocephalus. Hydrocephalus Association (HA) Connect 2018 Meeting (Young Investigator Travel Award). Orange County, CA.
+  \item Emmert AS, Vuong SM, et al. CRISPR/Cas9-Based Development of progressive hydrocephaly (prh) Rat Model of Hydrocephalus. Ohio State Neurosurgical Society Annual Meeting. Columbus, OH.
+  \item Vuong SM. Advanced Provider Session: Anatomy and Radiology Review - Spine. The Winter Clinics for Cranial and Spinal Surgery. Snowmass, CO.
+  \item Vuong SM, Goto J, Abdelhamed ZI, Mangano FT. Investigations of Biomarkers and New Medical Targets for Pediatric Hydrocephalus. Department of Neurosurgery Grand Rounds, University of Cincinnati. Cincinnati, OH.
+\end{itemize}
+
+\subsection{2017}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Emmert AS, Vuong SM, et al. CRISPR/Cas9-Based Development of progressive hydrocephaly (prh) Rat Model of Hydrocephalus. 46th Annual AANS/CNS Section on Pediatric Neurological Surgery. Houston, TX.
+  \item Emmert AS, Vuong SM, et al. DTI Quantification of Mild White Matter Alterations in a CRISPR/Cas9-Generated Rat Model of X-Linked Hydrocephalus. 46th Annual AANS/CNS Section on Pediatric Neurological Surgery. Houston, TX.
+  \item Emmert AS, Vuong SM, et al. CRISPR/Cas9-Based Development of Novel Transgenic Rat Model of X-Linked Hydrocephalus (Top Poster). 46th Annual AANS/CNS Section on Pediatric Neurological Surgery. Houston, TX.
+  \item Patel SK \& Vuong SM. University of Cincinnati Resident Team for the CNS Resident SANS Challenge. Congress of Neurological Surgeons. Boston, MA.
+  \item Nasser R, Nouri A, Vuong SM, et al. Pediatric Concussion. AANS Online Course for ``Pediatric Trauma''. 2017.
+  \item Vuong SM, Goto J, et al. Gene expression profiling analysis of the choroid plexus in a novel mouse model of pediatric hydrocephalus. 61st Annual Meeting for the Society for Research into Hydrocephalus and Spina Bifida. St. Louis, MO.
+  \item Vuong SM \& Mangano FT. The Beginnings of Experimental Hydrocephalus. 61st Annual Meeting for the Society for Research into Hydrocephalus and Spina Bifida. St. Louis, MO.
+  \item Vuong SM. Special Resident Lecture: Novel Congenital Hydrocephalus Model. Mayfield Neuroscience Symposium, University of Cincinnati. Cincinnati, OH.
+  \item Carroll CP, Vuong SM, et al. Rapid Fire Cerebrovascular Presentation: Robotically-Assisted Cerebral Angiography and Intracranial Intervention. AANS Annual Scientific Meeting. Los Angeles, CA.
+  \item Carroll CP, Vuong SM, et al. Does Daily Aspirin Protect Against Aneurysmal Growth? Ohio State Neurosurgical Society Annual Meeting. Columbus, OH.
+  \item Carroll CP, Vuong SM, et al. Development of a Free-Standing Ambulatory Neurosurgery Center. Ohio State Neurosurgical Society Annual Meeting. Columbus, OH.
+  \item Vuong SM, Goto J, et al. Genetic Characterization of a Novel Mouse Mutant of Pediatric Hydrocephalus (Top Poster Award). Ohio State Neurosurgical Society Annual Meeting. Columbus, OH.
+  \item Vuong SM. Winter Clinics -- Stump the Chump: Sacroiliac Joint Fusion Case Study. The Winter Clinics for Cranial and Spinal Surgery. Snowmass, CO.
+  \item Vuong SM. Neurosurgery Department Grand Rounds: CSF Flow Dynamics. Department of Neurosurgery \& The Mayfield Clinic. Cincinnati, OH.
+\end{itemize}
+
+\subsection{2016}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM, Goto J, et al. Genetic Characterization of the progressive hydrocephaly (prh) Mouse Mutant. 45th Annual AANS/CNS Section on Pediatric Neurological Surgery. Orlando, FL.
+\end{itemize}
+
+\subsection{2015}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Serrone JC, Vuong SM, et al. Aneurysm growth and de novo aneurysm formation during an aneurysm surveillance protocol. Congress of Neurological Surgeons. New Orleans, LA.
+  \item Vuong SM. Monday Pediatric Neurosurgery Conference: Pediatric Joint Section Hydrocephalus Guidelines. Cincinnati Children's Hospital. Cincinnati, OH.
+\end{itemize}
+
+\subsection{2014}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Gozal YM, Vuong SM, et al. Predictors of radiographic progression of intracranial hemorrhage in mild traumatic brain injury. Neurocritical Care Society. Seattle, WA.
+  \item Vuong SM. Neurosurgery Department Grand Rounds: Endovascular Therapy for Acute Stroke. Department of Neurosurgery \& The Mayfield Clinic. Cincinnati, OH.
+\end{itemize}
+
+\subsection{2013}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM. Trauma Conference Presentation: C-Spine Clearance. University of Cincinnati, Department of Surgery. Cincinnati, OH.
+\end{itemize}
+
+\subsection{2011}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM. Grand Rounds Presentation: Psychosurgery on Addiction. University of Wisconsin, Department of Neurosurgery. Madison, WI.
+  \item Vuong SM. Avera Sacred Heart Hospice. Sanford School of Medicine Cultural Colloquium. Yankton, SD.
+  \item Cowles D, Vuong SM. Dermatologic Emergency: Pediatric Edition. Sanford School of Medicine. Yankton, SD.
+\end{itemize}
+
+\subsection{2008}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM, Scholl JL, Forster GL. Amphetamine Treatment Increases Neural Response to Stress Hormone. University of South Dakota IdeaFest Research Forum. Vermillion, SD.
+\end{itemize}
+
+\subsection{2007}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM, Scholl JL, Forster GL. Changes in a neural stress system as a result of amphetamine treatment. University of South Dakota IdeaFest Undergraduate Research Forum. Vermillion, SD.
+\end{itemize}
+
+%------------------------------------------------------------------------------
+% COURSES \& MEETINGS
+%------------------------------------------------------------------------------
+\cvsection{Courses \& Meetings}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Aesculap Academy. Hydrocephalus Management Course. Nov 2025. Miami, FL.
+  \item 2024 Annual Meeting of the AANS/CNS Section on Pediatric Neurological Surgery. Dec 2024. New York City, NY.
+  \item South Dakota and North Dakota Chapters of the American College of Surgeons 2024 Annual Meeting. Apr 2024. Aberdeen, SD.
+  \item Relievant Intracept Training Course. Nov 2023. Nashville, TN.
+  \item Aesculap Academy. Hydrocephalus Management Course. Oct 2023. Pittsburgh, PA.
+  \item Stryker Navigation VIP visit. Oct 2022. Washington, DC.
+  \item DePuy Synthes Complex Spine Hands-on Summer Series. Aug 2021. Chicago, IL.
+  \item Titan Science \& Technology Dinner Program - Medtronic Training. Mar 2020. Sioux Falls, SD.
+  \item 48th Annual Meeting of the AANS/CNS Section on Pediatric Neurological Surgery. Dec 2019. Scottsdale, AZ.
+  \item Medtronic Visiting Clinician Program -- Frameless DBS implantation with NexFrame. Oct 2019. Austin, TX.
+  \item Zimmer Biomet Lab \& Cadaver Training Course - Lateral exposure and robotic spine surgery. Westminster, CO.
+  \item Enabling Technologies Resident \& Fellows Course. Mar 2019. Aurora, CO.
+  \item Cranial and Spinal Stryker Drill Hands-On Workshop. Apr 2018. Cincinnati, OH.
+  \item University of Cincinnati Microvascular Skills Course. Mar 2018. Cincinnati, OH.
+  \item University of Cincinnati Microvascular Skills Course. Aug 2017. Cincinnati, OH.
+  \item Inaugural Allegheny Health Network Dr. Walter Grand Brain Endoscopy Course. Jul 2017. Pittsburgh, PA.
+  \item University of Cincinnati Microvascular Skills Course. May 2017. Cincinnati, OH.
+  \item Zimmer Spine Resident \& Fellows Program. Apr 2017. Cincinnati, OH.
+  \item AANS/NREF Fundamentals in Spinal Surgery Course for Residents. Nov 2016. Houston, TX.
+  \item Keck School of Medicine of USC -- Approaches to the Skull Base. Nov 2016. Palm Beach Gardens, FL.
+  \item University of Cincinnati Microvascular Skills Course. Oct 2016. Cincinnati, OH.
+  \item DePuy Synthes \& Ethicon Spine Lab. Aug 2016. Cincinnati, OH.
+  \item Zimmer Spine Resident \& Fellows Program. Jul 2016. Cincinnati, OH.
+  \item Cranial Midas Rex Hands-On Workshop. Jun 2016. Cincinnati, OH.
+  \item Advanced Midas Rex Hands-On Workshop. Mar 2016. Cincinnati, OH.
+  \item The Chicago Review Course in Neurological Surgery. Jan 2016. Chicago, IL.
+  \item Zimmer Spine Resident \& Fellows Program. Nov 2015. Cincinnati, OH.
+  \item 9th Annual Ozarks Neurosurgery Education Clinic. Oct 2015. Branson, MO.
+  \item Medtronic Midas Rex Drill Course. Oct 2015. Cincinnati, OH.
+  \item University of Cincinnati Microvascular Skills Course. Sep 2015. Cincinnati, OH.
+  \item Zimmer Spine Resident \& Fellows Program. Jul 2014. Cincinnati, OH.
+  \item University of Cincinnati Microvascular Skills Course. Apr 2014. Cincinnati, OH.
+  \item Medtronic Midas Rex Drill Course. Aug 2013. Cincinnati, OH.
+  \item Zimmer Spine Resident \& Fellows Program. Jun 2013. Cincinnati, OH.
+  \item Society of Neurological Surgeons (SNS) PGY-1 Boot Camp. Jul 2012. Philadelphia, PA.
+\end{itemize}
+\vspace{0.5em}
+
+%------------------------------------------------------------------------------
+% PATENTS
+%------------------------------------------------------------------------------
+\cvsection{Patents}
+\begin{itemize}
+  \setlength\itemindent{0.25em}
+  \item Vuong SM. Ocular Shield for Facilitating Generation of Visual Evoked Potentials (VEP). \textit{U.S. Patent 11,147,712}. October 19, 2021.
+\end{itemize}
+\vspace{0.5em}
+
+%------------------------------------------------------------------------------
+% OTHER VENTURES
+%------------------------------------------------------------------------------
+\cvsection{Other Ventures}
+
+\professional%
+  {Ordained Minister}%
+  {Universal Life Church}%
+  {}{April 2025 -- Present}%
+  {Performed a wedding ceremony August 30, 2025}
+
+\professional%
+  {Partner}%
+  {Frontline Development}%
+  {Sioux City, IA}%
+  {July 2025 -- Present}%
+  {Real estate and development projects \textbullet{} Board of Directors for the building, development, and operations of Siouxland Splash}
+
+%------------------------------------------------------------------------------
+% Footer
+%------------------------------------------------------------------------------
+\vfill
+\begin{center}
+  \color{lightgray}\rule{0.5\linewidth}{0.4pt}\\
+  \small\color{secondary}\CV@name{} --- Last updated: \today
+\end{center}
+
+\end{document}
