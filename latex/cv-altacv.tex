@@ -1,0 +1,261 @@
+%==============================================================================
+% Shawn M. Vuong, MD - Academic CV using AltaCV
+% Based on AltaCV template by LianTze Lim
+%==============================================================================
+
+\documentclass[10pt,a4paper,withhyper]{altacv}
+
+%------------------------------------------------------------------------------
+% Page Layout
+%------------------------------------------------------------------------------
+\geometry{left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+%------------------------------------------------------------------------------
+% Two-column support
+%------------------------------------------------------------------------------
+\usepackage{paracol}
+
+%------------------------------------------------------------------------------
+% Fonts
+%------------------------------------------------------------------------------
+\iftutex
+  \setmainfont{Helvetica Neue}
+  \setsansfont{Helvetica Neue}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+%------------------------------------------------------------------------------
+% Colors - Professional Blue Theme
+%------------------------------------------------------------------------------
+\definecolor{primary}{RGB}{31, 73, 125}
+\definecolor{accent}{RGB}{0, 112, 192}
+\definecolor{secondary}{RGB}{64, 64, 64}
+\definecolor{LightGrey}{HTML}{666666}
+
+\colorlet{name}{primary}
+\colorlet{tagline}{accent}
+\colorlet{heading}{primary}
+\colorlet{headingrule}{accent}
+\colorlet{subheading}{accent}
+\colorlet{accent}{accent}
+\colorlet{emphasis}{secondary}
+\colorlet{body}{LightGrey}
+
+%------------------------------------------------------------------------------
+% Font Configurations
+%------------------------------------------------------------------------------
+% \renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+% \renewcommand{\personalinfofont}{\footnotesize}
+% \renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+% \renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+%------------------------------------------------------------------------------
+% Bullet formatting
+%------------------------------------------------------------------------------
+% \renewcommand{\cvItemMarker}{{\small\textbullet}}
+
+%------------------------------------------------------------------------------
+% Document
+%------------------------------------------------------------------------------
+\begin{document}
+
+\name{Shawn M. Vuong, MD}
+\tagline{Pediatric Neurosurgeon}
+
+\personalinfo{%
+  \email{shawn.vuong@sanfordhealth.org}
+  \phone{(605) 310-8163}
+  \location{1420 W 22nd St. Ste 510, Sioux Falls, SD 57105}
+  \linkedin{shawnvuong}
+}
+
+\makecvheader
+
+%------------------------------------------------------------------------------
+% Left Column - Experience, Education, Research
+%------------------------------------------------------------------------------
+\columnratio{0.65}
+
+\begin{paracol}{2}
+
+\cvsection{Licenses}
+\cvevent{Physician Medical License (75486)}{Minnesota Board of Medical Practice}{October 2023 -- August 2026}{}
+\cvevent{License to Practice Medicine (20076)}{North Dakota Board of Medicine}{July 2023 -- August 2026}{}
+\cvevent{Permanent Medical License (MD-48008)}{Iowa Board of Medicine}{November 2020 -- August 2026}{}
+\cvevent{Medical License MD/DO (10990)}{South Dakota Board of Medical \& Osteopathic Examiners}{July 2018 -- Present}{}
+\cvevent{Interstate Medical Licensure Compact Designate}{}{}{Letter of Qualification Expiration June 2024}
+
+\cvsection{Certifications}
+
+\textbf{United States Medical Licensing Exam}
+\cvevent{USMLE Step 1}{}{June 2010 (98)}{}
+\cvevent{USMLE Step 2 CK}{}{July 2011 (98)}{}
+\cvevent{USMLE Step 2 CS}{}{July 2011 (PASS)}{}
+\cvevent{USMLE Step 3}{}{February 2013 (80)}{}
+
+\textbf{American Board of Neurological Surgery (ABNS)}
+\cvevent{Written Exam}{}{March 2016 (PASS)}{}
+\cvevent{Oral Exam}{}{May 2022 (PASS)}{}
+\cvevent{Diplomate}{Certificate \#220543118}{May 2022}{}
+\cvevent{Recognition of Focused Practice}{Pediatrics}{}{}
+
+\textbf{American Board of Pediatric Neurosurgery (ABPNS)}
+\cvevent{Subspecialty Exam}{}{June 2019 (PASS)}{}
+\cvevent{Oral Board Exam}{}{May 2022 (PASS)}{}
+\cvevent{Diplomate}{Certificate \#220543118}{June 2023}{}
+
+\cvsection{Education}
+
+\cvevent{Fellow in Pediatric Neurosurgery}{Cincinnati Children's Hospital Medical Center}{July 2018 -- July 2019}{Cincinnati, OH}
+\begin{itemize}
+\item Division of Neurosurgery
+\item U.S. News \& World Report 2nd Best Children's Hospital 2018-2019
+\item Fellowship Director: Francesco T. Mangano
+\end{itemize}
+
+\divider
+
+\cvevent{Chief Resident in Neurosurgery}{University of Cincinnati Medical Center}{July 2017 -- June 2018}{Cincinnati, OH}
+\begin{itemize}
+\item Department of Neurosurgery
+\item Chairmen: Joseph C. Cheng \& Mario Zuccarello
+\end{itemize}
+
+\divider
+
+\cvevent{Resident in Neurosurgery}{University of Cincinnati Medical Center}{July 2012 -- June 2018}{Cincinnati, OH}
+\begin{itemize}
+\item Department of Neurosurgery -- Mayfield Clinic \& Cincinnati Children's Hospital Medical Center
+\item Over 1500 logged surgical cases
+\item Experience with minimally invasive spine, open complex spine, stereotactic radiosurgery, endovascular neurosurgery, open vascular, trauma, peripheral nerve, skull-base, tumor, deep brain stimulation, epilepsy, and pediatrics
+\end{itemize}
+
+\divider
+
+\cvevent{Medical Doctorate (MD)}{Sanford School of Medicine, University of South Dakota}{August 2008 -- May 2012}{Sioux Falls, SD}
+\begin{itemize}
+\item Student of the Yankton Model Program
+\item Over 1300 logged patient encounters
+\item Over 250 logged surgical cases (most first assist)
+\end{itemize}
+
+\divider
+
+\cvevent{Bachelor of Science (BS), Biology, Summa Cum Laude}{University of South Dakota}{September 2004 -- May 2008}{Vermillion, SD}
+
+\cvsection{Professional Appointments \& Employment}
+
+\cvevent{Chief of Surgery, Sanford Medical Center}{Sanford Health}{July 2022 -- Present}{Sioux Falls, SD}
+\begin{itemize}
+\item Surgical Operations
+\item Oversee over 138 surgeons, over 200 total OR staff, 45 full-time operating rooms
+\item Lead block scheduling initiative to increase OR efficiencies
+\item Supervising physician for OR Advance Practice Providers
+\end{itemize}
+
+\divider
+
+\cvevent{Staff Neurosurgeon}{Sanford Medical Center}{August 2019 -- Present}{Sioux Falls, SD}
+\begin{itemize}
+\item Department of Surgery, Division of Neurosurgery
+\end{itemize}
+
+\divider
+
+\cvevent{Chair of Neurosurgery}{Sanford Health Sioux Falls}{October 2022 -- Present}{Sioux Falls, SD}
+\begin{itemize}
+\item Volume review, efficiency review, peer review, and department efficiencies
+\item Recruited 3 additional neurosurgeons and helped rebuild the department
+\item Oversee 4 full-time and 2 part-time surgeons as well as locums coverage and 7 APPs
+\end{itemize}
+
+\divider
+
+\cvevent{Assistant Professor of NeuroSciences}{Sanford School of Medicine, USD}{November 2020 -- Present}{Sioux Falls, SD}
+\cvevent{Assistant Professor of Surgery}{Sanford School of Medicine, USD}{August 2019 -- Present}{Sioux Falls, SD}
+\cvevent{Instructor of Neurosurgery}{University of Cincinnati Medical Center}{July 2012 -- June 2018}{Cincinnati, OH}
+
+\cvsection{Research \& Teaching Experience}
+
+\cvevent{Member of Ph.D. Dissertation Committee}{University of South Dakota}{September 2025 -- Present}{Sioux Falls, SD}
+\cvevent{Outstanding Mentor Award}{USD Sanford School of Medicine}{April 2022}{}
+\cvevent{Resident Physician Researcher}{Cincinnati Children's Hospital}{July 2016 -- June 2017}{Cincinnati, OH}
+\cvevent{Research Technician}{University of South Dakota}{January 2006 -- July 2010}{Vermillion, SD}
+\cvevent{Emergency Medical Technician -- Instructor}{Vermillion/Clay County EMS}{July 2005 -- July 2010}{Vermillion, SD}
+
+%------------------------------------------------------------------------------
+% Switch to right column
+%------------------------------------------------------------------------------
+\switchcolumn
+
+\cvsection{Awards, Honors, \& Grants}
+
+\cvachievement{\faTrophy}{Key to the Castle Winner}{December 2022}
+
+\cvachievement{\faAward}{Always Available Award}{Nominated by Dr. Kellie Sweet for being always amiable for pediatric neurosurgery opinions}
+
+\cvachievement{\faAward}{Frank H. Mayfield Society}{Inducted April 14, 2018 -- Mayfield Brain \& Spine}
+
+\cvachievement{\faAward}{Hydrocephalus Association's Young Investigator 2018 Travel Award}{January 2018}
+
+\cvachievement{\faAward}{2017 Hydrocephalus Association Award}{Best presentation on Hydrocephalus at AANS/CNS Joint Pediatric Section Annual Meeting}
+
+\cvachievement{\faDollarSign}{Mayfield Education \& Research Foundation Grant}{\$48,000 -- January 2016}
+
+\cvsection{Professional Memberships}
+
+\cvtag{American College of Surgeons (ACS) -- Fellow}
+\cvtag{International College of Surgeons (ICS) -- Fellow}
+\cvtag{AANS -- Fellow}
+\cvtag{CNS -- Fellow}
+\cvtag{AANS/CNS Section on Pediatric Neurological Surgery -- Member}
+\cvtag{The American Academy of Neurological \& Orthopaedic Surgeons -- Honorary Member}
+
+\cvsection{Selected Presentations}
+
+\cvevent{}{Aesculap 2025 National Sales Meeting}{2025}{Austin, TX}
+\cvevent{}{South Dakota Neuro-Stroke Conference 2025}{2025}{Sioux Falls, SD}
+\cvevent{}{Brain Death -- A Clinician's Perspective}{2024}{Vermillion, SD}
+\cvevent{}{The Six Chiaris}{2024}{Deadwood, SD}
+\cvevent{}{Spinal Fracture Review -- Winter Clinics}{2024}{Snowmass, CO}
+\cvevent{}{CSF Flow Dynamics}{2022}{Sioux Falls, SD}
+\cvevent{}{Traumatic Brain Injury Review}{2022}{Sioux Falls, SD}
+
+\cvsection{Courses \& Training}
+
+\cvevent{}{Aesculap Academy -- Hydrocephalus Management}{Nov 2025}{Miami, FL}
+\cvevent{}{AANS/CNS Pediatric NS Annual Meeting}{Dec 2024}{New York, NY}
+\cvevent{}{Relievant Intracept Training Course}{Nov 2023}{Nashville, TN}
+\cvevent{}{Stryker Navigation VIP}{Oct 2022}{Washington, DC}
+\cvevent{}{48th AANS/CNS Pediatric NS Meeting}{Dec 2019}{Scottsdale, AZ}
+\cvevent{}{Medtronic DBS Visiting Clinician Program}{Oct 2019}{Austin, TX}
+\cvevent{}{Enabling Technologies Course}{Mar 2019}{Aurora, CO}
+
+\cvsection{Patents}
+
+\cvevent{Ocular Shield for Facilitating Generation of VEP}{U.S. Patent 11,147,712}{October 19, 2021}{}
+
+\cvsection{Other Ventures}
+
+\cvevent{Ordained Minister}{Universal Life Church}{April 2025 -- Present}{}
+\cvevent{Partner -- Frontline Development}{}{July 2025 -- Present}{Sioux City, IA}
+\begin{itemize}
+\item Real estate and development projects
+\item Board of Directors for Siouxland Splash
+\end{itemize}
+
+\cvsection{Contact}
+
+\begin{itemize}
+\item \textbf{Email:} shawn.vuong@sanfordhealth.org
+\item \textbf{Phone:} (605) 310-8163
+\item \textbf{LinkedIn:} linkedin.com/in/shawnvuong
+\end{itemize}
+
+\end{paracol}
+
+\end{document}

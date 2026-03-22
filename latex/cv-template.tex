@@ -1,6 +1,7 @@
 %==============================================================================
 % Shawn M. Vuong, MD - Academic CV LaTeX Template
 % Professional Academic Curriculum Vitae
+% Compatible with XeLaTeX and LuaLaTeX
 %==============================================================================
 
 \documentclass[11pt, a4paper]{article}
@@ -10,16 +11,14 @@
 %------------------------------------------------------------------------------
 \usepackage[hmargin=0.75in, vmargin=0.75in]{geometry}
 \usepackage{fontspec}
-\usepackage{xunicode}
 \usepackage{xcolor}
 \usepackage{enumitem}
-\usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{etoolbox}
 \usepackage{ifthen}
 \usepackage{parskip}
-\usepackage{booktabs}
 \usepackage{microtype}
+\usepackage{hyperref}
 
 %------------------------------------------------------------------------------
 % Colors
@@ -40,40 +39,40 @@
 ]{Helvetica Neue}
 
 %------------------------------------------------------------------------------
+% Hyperref Setup
+%------------------------------------------------------------------------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent,
+    filecolor=accent
+}
+
+%------------------------------------------------------------------------------
 % Page Style
 %------------------------------------------------------------------------------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\color{primary}\small\scshape\CV@name}
+\fancyhead[L]{\color{primary}\small\scshape\CVname}
 \fancyhead[R]{\color{secondary}\small\thepage}
 \fancyfoot[C]{}
 \fancyfoot[L]{\color{lightgray}\rule{\linewidth}{0.4pt}}
-\def\headrule{\noalign{\global\@headrulewidth=0.4pt}%
-  \global\@footrulewidth=0pt}
-  
-\pagestyle{fancy}
 
 %------------------------------------------------------------------------------
 % Section Formatting
 %------------------------------------------------------------------------------
-\titleformat{\section}
-  {\Large\color{primary}\scshape\MakeUppercase}
-  {}
-  {0em}
-  {\titlerule[0.5pt]\vspace{-0.5em}}
-
-\titlespacing*{\section}{0pt}{1.5ex plus 1ex minus 0.2ex}{0.5ex}
 
 %------------------------------------------------------------------------------
 % Subsection Formatting
 %------------------------------------------------------------------------------
-\titleformat{\subsection}
-  {\large\color{secondary}\bfseries}
-  {}
-  {0em}
-  {}
-
-\titlespacing*{\subsection}{0pt}{0.75ex plus 0.5ex minus 0.2ex}{0.25ex}
+\renewenvironment{subsection}{%
+  \par%
+  \large\color{secondary}\bfseries%
+  \nopagebreak%
+}{%
+  \par%
+  \vspace{0.25ex}%
+}
 
 %------------------------------------------------------------------------------
 % Item Formatting
@@ -82,22 +81,24 @@
 \setlist[1]{label={\color{accent}\textbullet}}
 
 %------------------------------------------------------------------------------
-% Custom Commands
+% Personal Information Macros
 %------------------------------------------------------------------------------
-\def\CV@name{Shawn M. Vuong, MD}
-\def\CV@title{Pediatric Neurosurgeon}
-\def\CV@address{1420 W 22nd St. Ste 510, Sioux Falls, SD 57105}
-\def\CV@phone{(605) 310-8163}
-\def\CV@email{shawn.vuong@sanfordhealth.org}
-\def\CV@linkedin{https://www.linkedin.com/in/shawnvuong/}
+\newcommand{\CVname}{Shawn M. Vuong, MD}
+\newcommand{\CVtitle}{Pediatric Neurosurgeon}
+\newcommand{\CVaddress}{1420 W 22nd St. Ste 510, Sioux Falls, SD 57105}
+\newcommand{\CVphone}{(605) 310-8163}
+\newcommand{\CVemail}{shawn.vuong@sanfordhealth.org}
+\newcommand{\CVlinkedin}{https://www.linkedin.com/in/shawnvuong/}
 
+%------------------------------------------------------------------------------
 % Header Command
-\newcommand{\makeheader}[0]{%
+%------------------------------------------------------------------------------
+\newcommand{\makeheader}{%
   \begin{center}
-    {\Huge\color{primary}\bfseries\CV@name}\\[0.2em]
-    {\large\color{secondary}\CV@title}\\[0.5em]
+    {\Huge\color{primary}\bfseries\CVname}\\[0.2em]
+    {\large\color{secondary}\CVtitle}\\[0.5em]
     {\small
-      \CV@address{} \textbullet{} \CV@phone{} \textbullet{} \hrefmailto{\CV@email}\textbullet{} \href{\CV@linkedin}{LinkedIn}
+      \CVaddress{} \textbullet{} \CVphone{} \textbullet{} \hrefmailto{\CVemail}\textbullet{} \href{\CVlinkedin}{LinkedIn}
     }
   \end{center}
   \vspace{0.5em}
@@ -105,13 +106,23 @@
   \vspace{0.5em}
 }
 
+%------------------------------------------------------------------------------
 % Section Command
+%------------------------------------------------------------------------------
 \newcommand{\cvsection}[1]{%
-  \section{#1}
+  \par\vspace{1.5ex}%
+  {\Large\color{primary}\scshape\MakeUppercase{#1}}%
+  \nopagebreak[4]%
+  \vspace{0.3em}%
+  \nopagebreak[4]%
+  \hrule width \linewidth height 0.5pt \color{primary}%
+  \vspace{0.5ex}%
 }
 
+%------------------------------------------------------------------------------
 % Entry Command - For main position/title entries
 % Usage: \cventry{title}{institution}{location}{date}{details}
+%------------------------------------------------------------------------------
 \newcommand{\cventry}[5]{%
   \par{\textbf{#1}\hfill\textit{#4}}\\
   \textit{#2}\ifthenelse{\equal{#3}{}}{}{ --- #3}\par
@@ -119,72 +130,48 @@
   \vspace{0.25em}
 }
 
-% SubEntry Command - For nested entries under main positions
-% Usage: \subentry{title}{description}
-\newcommand{\subentry}[2]{%
-  \par{\textbullet{} \textbf{#1}}\par
-  \ifthenelse{\equal{#2}{}}{}{#2\par}
-  \vspace{0.15em}
-}
+%------------------------------------------------------------------------------
+% Education Entry (alias for cventry)
+%------------------------------------------------------------------------------
+\newcommand{\education}[5]{\cventry{#1}{#2}{#3}{#4}{#5}}
 
-% Publication Command
-% Usage: \pubentry{authors}{title}{journal}{details}
-\newcommand{\pubentry}[4]{%
-  \par#1. #2. \textit{#3}. #4\par
-  \vspace{0.15em}
-}
+%------------------------------------------------------------------------------
+% Professional Entry (alias for cventry)
+%------------------------------------------------------------------------------
+\newcommand{\professional}[5]{\cventry{#1}{#2}{#3}{#4}{#5}}
 
-% Presentation Command
-% Usage: \presentry{authors}{title}{venue}{date}{location}
-\newcommand{\presentry}[5]{%
-  \par#1. \textbf{#2}. #3. #4. #5\par
-  \vspace{0.1em}
-}
-
-% Patent Command
-% Usage: \patententry{title}{number}{date}
-\newcommand{\patententry}[3]{%
-  \par#1. \textit{U.S. Patent #2}. #3\par
-  \vspace{0.15em}
-}
-
-% Education Entry
-% Usage: \education{degree}{institution}{location}{dates}{details}
-\newcommand{\education}[5]{%
-  \cventry{#1}{#2}{#3}{#4}{#5}
-}
-
-% Professional Entry
-% Usage: \professional{title}{institution}{location}{dates}{details}
-\newcommand{\professional}[5]{%
-  \cventry{#1}{#2}{#3}{#4}{#5}
-}
-
+%------------------------------------------------------------------------------
 % Award Entry
 % Usage: \award{name}{details}
+%------------------------------------------------------------------------------
 \newcommand{\award}[2]{%
   \par\textbf{#1}\ifthenelse{\equal{#2}{}}{}{ --- #2}\par
   \vspace{0.1em}
 }
 
-% Course Entry
-% Usage: \course{name}{date}{location}
-\newcommand{\course}[3]{%
-  \par#1. #2. #3\par
-  \vspace{0.05em}
-}
-
+%------------------------------------------------------------------------------
 % Grant Entry
 % Usage: \grant{name}{amount}{details}
+%------------------------------------------------------------------------------
 \newcommand{\grant}[3]{%
   \par\textbf{#1}\ifthenelse{\equal{#2}{}}{}{ --- #2}\par
   \ifthenelse{\equal{#3}{}}{}{#3\par}
   \vspace{0.1em}
 }
 
-% Link helper
-\def\mailto#1{\href{#1}{\nolinkurl{#1}}}
-\def\href#1#2{\href{#1}{\color{accent}{#2}}}
+%------------------------------------------------------------------------------
+% Course Entry
+% Usage: \course{name}{date}{location}
+%------------------------------------------------------------------------------
+\newcommand{\course}[3]{%
+  \par#1. #2. #3\par
+  \vspace{0.05em}
+}
+
+%------------------------------------------------------------------------------
+% Link helpers
+%------------------------------------------------------------------------------
+\def\hrefmailto#1{\href{#1}{\nolinkurl{#1}}}
 
 %------------------------------------------------------------------------------
 % Document
@@ -550,7 +537,7 @@
 \subsection{2020}
 \begin{itemize}
   \setlength\itemindent{0.25em}
-  \item Patel SK, Nagaraj UD, Emmert AS, Vuong SM, et al. Factors underlying postnatal outcomes in fetal occipital encephalocele: The development of imaging-based prediction parameters. 49th Annual AANS/CNS Section on Pediatric Neurological Surgery. Virtual Meeting.
+  \item Patel SK, Nagaraj UD, Emmert AS, Vuong SM, et al. Factors underlying postnatal outcomes in fetal occipital encephalocele. 49th Annual AANS/CNS Section on Pediatric Neurological Surgery. Virtual Meeting.
   \item Vuong SM. Adult Traumatic Brain Injury Review. The Sanford Health Annual Trauma Symposium. Sioux Falls, SD.
   \item Trumble ER \& Vuong SM. Primary and Secondary Concerns in the Treatment of Chiari and Syringomyelia. Third Annual South Dakota Chiari Symposium. Sioux Falls, SD.
   \item Vuong SM. Pediatric Department Grand Rounds: CSF Flow Dynamics. University of South Dakota. Sioux Falls, SD.
@@ -725,7 +712,7 @@
 \vfill
 \begin{center}
   \color{lightgray}\rule{0.5\linewidth}{0.4pt}\\
-  \small\color{secondary}\CV@name{} --- Last updated: \today
+  \small\color{secondary}\CVname{} --- Last updated: \today
 \end{center}
 
 \end{document}

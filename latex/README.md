@@ -1,64 +1,44 @@
-# LaTeX CV Setup Guide
+# LaTeX CV Templates
 
-## Quick Start
+Professional LaTeX templates for Shawn M. Vuong, MD.
 
-### Option 1: Custom Template (Full Control)
-The `cv-template.tex` file provides maximum control over formatting with custom commands.
+## Templates
 
-**To compile:**
+### cv-template.tex (Recommended)
+Single-column professional academic CV.
+- Full control over formatting
+- Traditional academic layout
+- 11 pages, 80KB
+
 ```bash
-cd latex
 lualatex cv-template.tex
 ```
 
-Or with XeLaTeX:
+### cv-altacv.tex
+Two-column CV with sidebar using AltaCV class.
+- Modern sidebar design
+- Two-column layout
+- 61KB
+
 ```bash
-xelatex cv-template.tex
+lualatex cv-altacv.tex
 ```
 
-### Option 2: ModernCV (Quick Setup)
-The `cv-moderncv.tex` file uses the popular `moderncv` class for a polished look with minimal setup.
+**Note:** Requires `altacv.cls` in the same directory.
 
-**To compile:**
+## Requirements
+
+Both templates require LuaLaTeX:
 ```bash
-cd latex
-pdflatex cv-moderncv.tex
+lualatex cv-template.tex
 ```
 
-## Required Packages
+## Current Status
 
-For the custom template, ensure you have:
-- fontspec
-- xunicode
-- xcolor
-- titlesec
-- fancyhdr
-- geometry
-- enumitem
-- booktabs
-- microtype
+- **Recommended:** `cv-template.tex` - single column, production-ready
+- `cv-altacv.tex` - two-column alternative (more development needed)
 
-Install via (if needed):
-```bash
-tlmgr install fontspec xunicode xcolor titlesec fancyhdr geometry enumitem booktabs microtype
-```
-
-## File Structure
-
-```
-cv/
-├── latex/
-│   ├── cv-template.tex    # Custom professional template
-│   ├── cv-moderncv.tex   # Using moderncv class
-│   ├── publications.bib   # For bibliography (optional)
-│   └── README.md         # This file
-├── cv-master             # Source markdown
-└── cv-gpt              # Formatted markdown
-```
-
-## Custom Template Commands
-
-The `cv-template.tex` provides these commands:
+## Custom Template Commands (cv-template.tex)
 
 ```latex
 % Header
@@ -83,37 +63,23 @@ The `cv-template.tex` provides these commands:
 \course{name}{date}{location}
 ```
 
-## ModernCV Commands
+## Customization
 
+### Colors
+Edit the color definitions at the top of `cv-template.tex`:
 ```latex
-% Single item
-\cvitem{label}{content}
-
-% Double item (side by side)
-\cvlistdoubleitem{left}{right}
-
-% Entry
-\cventry{title}{institution}{location}{dates}{description}
+\definecolor{primary}{RGB}{31, 73, 125}   % Header color
+\definecolor{accent}{RGB}{0, 112, 192}    % Accent color
 ```
 
-## Tips
+### Personal Information
+Update these macros:
+```latex
+\newcommand{\CVname}{Shawn M. Vuong, MD}
+\newcommand{\CVtitle}{Pediatric Neurosurgeon}
+```
 
-1. **Font Setup**: The custom template uses Helvetica Neue. For system fonts on macOS, XeLaTeX/LuaLaTeX works best.
-
-2. **Bibliography**: For the moderncv version, create a `publications.bib` file and use `\bibliography{publications}`.
-
-3. **Customization**: Modify the color definitions at the top of `cv-template.tex` to match your preference:
-   ```latex
-   \definecolor{primary}{RGB}{31, 73, 125}   % Header color
-   \definecolor{accent}{RGB}{0, 112, 192}    % Accent color
-   ```
-
-4. **Page Margins**: Adjust in geometry package options:
-   ```latex
-   \usepackage[hmargin=0.75in, vmargin=0.75in]{geometry}
-   ```
-
-## Workflow for Updates
+## Workflow
 
 1. Update `cv-master` (markdown source of truth)
 2. Sync changes to LaTeX template
