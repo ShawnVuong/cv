@@ -1,0 +1,249 @@
+# License and Certification
+
+## Doctor of Medicine (35.122276) -- State Medical Board of Ohio September 2013 - Present
+
+## MD Training Certification (57.021695) -- State Medical Board of Ohio October 2012 -- June 2013
+
+## United States Medical Licensing Exam: USMLE Step 1 - June 2010 (98) USMLE Step 2CK - July 2011 (98) USMLE Step 2CS - July 2011 (PASS) USMLE Step 3 - February 2013 (80)
+
+## American Board of Neurological Surgery: Written exam -- March 2016 (PASS)
+
+# Education
+
+## Resident in Neurosurgery, University of Cincinnati Medical Center July 2012 -- June 2018 (anticipated)
+
+Cincinnati, OH\
+Department of Neurosurgery --\
+Mayfield Clinic & Cincinnati Children's Hospital Medical Center\
+Over 1300 logged surgical cases (through 2017)\
+Experience with minimally invasive spine, open complex spine,\
+stereotactic radiosurgery with Gamma Knife, endovascular neurosurgery,\
+open vascular, trauma, peripheral nerve, skull-base, tumor, and
+pediatrics
+
+## M.D., Sanford School of Medicine, University of South Dakota August 2008 -- May 2012 
+
+Sioux Falls, SD\
+Student of the Yankton Model Program\
+Over 1300 logged patient encounters\
+Over 250 logged surgical cases (most first assist)
+
+## B.S., University of South Dakota September 2004 -- May 2008
+
+Vermillion, SD\
+Major: Biology\
+*Summa Cum Laude*
+
+# Professional Appointments & Employment
+
+## Instructor of Neurosurgery, University of Cincinnati School of Medicine July 2012 -- June 2018 (anticipated)
+
+#  Publications
+
+Vuong SM, Jeong WJ, Morales H, Abruzzo TA. Vascular Diseases of the
+Spinal Cord: Infarction, Hemorrhage, and Venous Congestive Myelopathy.
+Semin Ultrasound CT MR. 2016 Semin Ultrasound CT MR. 2016
+Oct;37(5):466-81. doi: 10.1053/j.sult.2016.05.008. Epub 2016 May 6.
+PMID: 27616317
+
+Serrone JC, Tackla RD, Gozal YM, Hanseman DJ, Gogela SL, Vuong SM, Kosty
+JA, Steiner CA, Krueger BM, Grossman AW, Ringer AJ. Aneurysm Growth and
+De Novo Aneurysms during Aneurysm Surveillance. J Neurosurg.
+Dec;125(6):1374-1382. Epub 2016 Mar 11. PMID: 26967775
+
+Vuong SM, Appelwick JE. MRSA Peritonitis Secondary to Perforation of
+Sigmoid Diverticulitis. S D Med. 2011 Nov;64(11):405, 407, 409. PMID:
+22164818
+
+Vuong SM, Holm RP. Does a stereotypical surgical personality exist? S D
+Med. 2011 May;64(5):172.PMID: 21661343
+
+Scholl JL, Vuong SM, Forster GL. Chronic amphetamine treatment enhances
+corticotropin-releasing factor-induced serotonin release in the
+amygdala. Eur J Pharmacol. 2010 Oct 10;644(1-3):80-7. Epub 2010 Jul 23.
+PMID: 20655906
+
+Vuong SM, Oliver HA, Scholl JL., Oliver KM, and Forster GL. Increased
+anxiety-like behavior of rats during amphetamine withdrawal is reversed
+by CRF-2 receptor antagonism. Behavioural Brain Research, 208 (2010)
+278--281. PMID: 19958793
+
+Lukkes J, Vuong SM, Scholl JL, Oliver H, Forster GL.
+Corticotropin-releasing factor receptor antagonism within the dorsal
+raphe nucleus reduces social anxiety-like behavior after early-life
+social isolation. J Neurosci. 2009 Aug 12;29(32):9955-60. PMID: 19675229
+
+Forster GL, Pringle RB, Mouw NJ, Vuong SM, Watt MJ, Burke AR, Lowry CA,
+Summers CH, and Renner KJ. Corticotropin-releasing factor in the dorsal
+raphe nucleus increases medial prefrontal cortical serotonin via type 2
+receptors and median raphe nucleus activity. European Journal of
+Neuroscience, Vol. 28, pp. 299--310, 2008. PMID: 18702701
+
+# Conference Activity & Presentations
+
+Carroll CP, Tackla RD, Vuong SM, Jeong WJ, Serrone JC, Ringer AJ.
+(2017). Robotic-Assisted Cerebral Angiography and Intracranial
+Intervention: initial experience with the Magellan Catheter System.
+Rapid Fire - oral presentation at 2017 AANS Annual Scientific Meeting.
+Los Angeles, CA.
+
+Carroll CP, Vuong SM, Fessler RD, Jeong WJ, Tobler WD. (2017).
+Ambulatory Spine Surgery: Development of a Free-Standing Ambulatory
+Neurosurgery Center. Electronic poster presentation at 2017 AANS Annual
+Scientific Meeting. Los Angeles, CA.
+
+Tackla RD, Carroll CP, Jeong WJ, Vuong SM, Serrone JC, Ringer AJ.
+(2017). Does Daily Aspirin Protect Against Aneurysmal Growth? Digital
+poster presentation at AANS/CNS Cerebrovascular Section 2017 Annual
+Meeting. Houston, TX.
+
+Vuong SM. (2017). Neurosurgery Department Grand Rounds: CSF Flow
+Dynamics. Do we really understand CSF flow? Department of Neurosurgery &
+The Mayfield Clinic. Cincinnati, OH.
+
+Vuong SM, Goto, J, Stottmann, R, Campbell K, Mangano FT. (2016). Genetic
+Characterization of the progressive hydrocephaly (prh) Mouse Mutant.
+Poster presentation at the 45^th^ Annual Meeting of the AANS/CNS Section
+on Pediatric Neurological Surgery. Orlando, FL.
+
+Serrone JC, Tackla RD, Gozal YM, Hanseman DJ, Gogela SL, Vuong SM, Kosty
+J, Krueger BM, Grossman AW, Ringer AJ. (2015). Aneurysm growth and de
+novo aneurysm formation during an aneurysm surveillance protocol. Poster
+presentation at the Congress of Neurological Surgeons. New Orleans, LA.
+
+Vuong SM. (2015). Monday Pediatric Neurosurgery Conference: Pediatric
+Joint Section Hydrocephalus Guidelines. Cincinnati Children's Hospital &
+Medical Center Department of Neurosurgery. Cincinnati, OH
+
+Gozal YM, York JD, Vuong SM, Patel SK, Look A, Gogela SL, Andaluz NO.
+(2014). Predictors of radiographic progression of intracranial
+hemorrhage in mild traumatic brain injury. Poster presentation at the
+Neurocritical Care Society. Seattle, WA.
+
+Vuong SM. (2014). Neurosurgery Department Grand Rounds: Endovascular
+Therapy for Acute Stroke. Is tPA the only viable treatment option?
+Department of Neurosurgery & The Mayfield Clinic. Cincinnati, OH.
+
+Vuong SM. (2013). Trauma Conference Presentation: C-Spine Clearance.
+University of Cincinnati, Department of Surgery. Cincinnati, OH.
+
+Vuong SM. (2011). Grand Rounds Presentation: Psychosurgery on Addiction:
+The past, present, and future of neurosurgery for mental disorders.
+University of Wisconsin, Department of Neurosurgery. Madision, WI.
+
+Vuong SM. (2011). Avera Sacred Heart Hospice. Poster presentation at The
+Sanford School of Medicine Cultural Colloquium, Yankton Campus. Yankton,
+SD.
+
+Cowles, D, Vuong, SM. (2011). Dermatologic Emergency: Pediatric Edition.
+Peer reviewed presentation on Stevens-Johnson Syndrome. Sanford School
+of Medicine, Yankton Campus. Yankton, SD.
+
+Vuong, SM, Scholl, JS and Forster, GL. (2008). Amphetamine Treatment
+Increases Neural Response to Stress Hormone. Poster presentation at The
+University of South Dakota IdeaFest Research Forum. Vermillion, SD.
+
+Vuong, SM, Scholl, JS and Forster, GL. (2007). Changes in a neural
+stress system as a result of amphetamine treatment. Poster presentation
+at The University of South Dakota IdeaFest Undergraduate Research Forum.
+Vermillion, SD.
+
+# Courses
+
+AANS/NREF Fundamentals in Spinal Surgery Course for Residents. November
+2016. MITIE, Methodist Institute for Technology, Innovation and
+Education -- Houston, TX
+
+Keck School of Medicine of USC -- Approaches to the Skull Base: Senior
+Neurosurgical Residents Course. November 2016. DePuy Synthes Laboratory
+-- Palm Beach Gardens, FL.
+
+University of Cincinnati Microvascular Skills Course. October 2016.
+Goodyear Skull Base Anatomy Laboratory at the University of Cincinnati
+-- Cincinnati, OH
+
+DePuy Synthes & Ethicon Spine Lab. August 2016. Mayfield Center for
+Surgical Innovation -- Cincinnati, OH
+
+Zimmer Spine Resident & Fellows Program. July 2016. Mayfield Center for
+Surgical Innovation - Cincinnati, OH
+
+Cranial Midas Rex Hands-On Workshop. June 2016. Goodyear Skull Base Lab
+at the University of Cincinnati -- Cincinnati, OH
+
+Advanced Midas Rex Hands-On Workshop. March 2016. Goodyear Skull Base
+Lab at the University of Cincinnati -- Cincinnati, OH
+
+The Chicago Review Course in Neurological Surgery. January 2016. The
+University of Chicago - Chicago, IL
+
+Zimmer Spine Resident & Fellows Program. November 2015. Christ Hospital
+Spine Surgery Center - Cincinnati, OH
+
+9^th^ Annual Ozarks Neurosurgery Education Clinic. October 2015. ONE
+Clinic and Cox Health -- Branson, MO
+
+Medtronic Midas Rex Drill Course. October 2015. Goodyear Skull Base Lab
+at the University of Cincinnati -- Cincinnati, OH
+
+University of Cincinnati Microvascular Skills Course. September 2015.
+Lab for Surgical Innovation at the University of Cincinnati --
+Cincinnati, OH
+
+Zimmer Spine Resident & Fellows Program. July 2014. Christ Hospital
+Spine Surgery Center - Cincinnati, OH
+
+University of Cincinnati Microvascular Skills Course. April 2014. Lab
+for Surgical Innovation at the University of Cincinnati -- Cincinnati,
+OH
+
+Medtronic Midas Rex Drill Course. August 2013. Goodyear Skull Base Lab
+at the University of Cincinnati -- Cincinnati, OH
+
+Zimmer Spine Resident & Fellows Program. June 2013. Christ Hospital
+Spine Surgery Center - Cincinnati, OH
+
+Society of Neurological Surgeons (SNS) PGY-1 Boot Camp: Fundamental
+Skills Course. July 2012. Philadelphia, PA
+
+# Awards, Honors, & Grants
+
+## Mayfield Education & Research Foundation (MERF) Grant Awarded January 2016
+
+Cincinnati Children's Hospital & Medical Center, University of
+Cincinnati Medical Center, & the Mayfield Clinic
+
+Research Titled: Identification of Molecular Therapeutic Targets in
+Choroid Plexus using a Novel Mouse Model of Communicating
+Hydrocephalus.\
+Awarded \$48,000
+
+# Professional Memberships
+
+Congress of Neurological Surgeons (CNS) -- Resident Member\
+American Association of Neurological Surgeons (AANS) -- Resident Member\
+American College of Surgeons (ACS) -- Resident Member
+
+# Research & Teaching Experience
+
+## Resident Researcher July 2016 -- June 2017
+
+Cincinnati Children's Hospital & Medical Center. Cincinnati, OH\
+Neuroscience research on congenital hydrocephalus in a mouse model under
+the supervision of June Goto Nakamura Ph.D. and Francesco Mangano, DO.
+
+##  Research Technician January 2006 -- July 2010
+
+University of South Dakota. Vermillion, SD\
+Neuroscience research conducted under the supervision of Gina L. Forster
+Ph.D.
+
+## Emergency Medical Technician - Instructor July 2005 -- July 2010 
+
+Vermillion/Clay County EMS. Vermillion, SD\
+NREMT-Basic certification received May 2005, and NREMT-Intermediate 85
+received June 2007\
+Taught EMT-Basic students human anatomy & physiology, vital signs,
+SAMPLE history taking, pharmacology, respiratory system, cardiac system,
+and the recognition and treatment of bleeding and shock as an EMT
+instructor.
